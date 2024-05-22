@@ -1,0 +1,24 @@
+<div class="col-8 animate__animated animate__fadeInTopLeft">
+  <div *ngIf="myResponseBorrowed.length == 0">
+    <p>Ödünç alma geçmişi yok!</p>
+  </div>
+  <div *ngIf="myResponseBorrowed.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Ödünç Alınan Kitap</th>
+          <th>İade Tarihi</th>
+          <th>İade Mesajı</th>
+          <th>İşlem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of myResponseBorrowed">
+          <td>{{ item.bookName }}</td>
+          <td>{{ item.returnTime.toLocaleString()}}</td>
+          <td>{{ getReturnTimeMessage(item.returnTime) }}</td>
+          <td>
+            <button type="button" (click)="bookReturn(item)">İade Et</button>
+          </td>
+        </tr>
+     

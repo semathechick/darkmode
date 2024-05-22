@@ -1,0 +1,9 @@
+<div class="spacer">
+  <label for="loanTransactionId">Loan Transaction ID:</label>
+  <input type="text" id="loanTransactionId" [(ngModel)]="loanTransactionId">
+  <button (click)="calculatePenalty()">Calculate Penalty</button>
+</div>
+<div *ngIf="penaltyAmount !== 0">
+  <p>Days: {{ days }}</p>
+  <p>Penalty Amount: {{ penaltyAmount }}</p>
+</div>
